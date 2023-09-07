@@ -1,0 +1,19 @@
+<Project>
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<DebugType>none</DebugType>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PackageVersion>$(Version)</PackageVersion>
+	</PropertyGroup>
+	<PropertyGroup>
+		<Copyright>Copyright © SKYC 2033 </Copyright>
+		<PackageProjectUrl>http://orientalgames.cn:8443</PackageProjectUrl>
+		<ProductName>Microsoft.Extensions.Logging</ProductName>
+		<ProductVersion>$(Version)</ProductVersion>
+		<Authors>SKYC;Yuanfeng.Zheng</Authors>
+		<FileVersion>$(Version)</FileVersion>
+		<VersionSuffix>$(Configuration)</VersionSuffix>
+		<Company>TMod.Inc</Company>
+		<Version>1.0.0</Version>
+	</PropertyGroup>
+</Project>

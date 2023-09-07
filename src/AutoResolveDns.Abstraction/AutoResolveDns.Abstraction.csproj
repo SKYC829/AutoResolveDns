@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="$(SolutionDir)\Directory.props"/>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Title>自动解析域名和IP到DNS解决方案的抽象类</Title>
+		<Description>自动解析域名和IP到DNS解决方案的抽象类，包含了解决方案服务的接口定义和一些配置模型类以及帮助类</Description>
+	</PropertyGroup>
+
+</Project>

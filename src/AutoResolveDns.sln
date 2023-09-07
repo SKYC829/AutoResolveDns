@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoResolveDns.Core", "AutoResolveDns.Core\AutoResolveDns.Core.csproj", "{1DC418B4-5D43-40E1-91B9-3584BD720682}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoResolveDns.Abstraction", "AutoResolveDns.Abstraction\AutoResolveDns.Abstraction.csproj", "{1998DA02-CC9E-458F-BEB2-5C2599F93AF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{C73C1E09-63BC-41A6-AA60-CAA9D03A25A8}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.props = Directory.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "工程文件", "工程文件", "{2A00F13E-0EAB-41E5-B5E7-D4774CFA0030}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "服务", "服务", "{6DB15AF2-ED60-44D0-AD05-CAE626FAA574}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoResolveDns", "AutoResolveDns\AutoResolveDns.csproj", "{2DB551A2-519D-4C0D-A372-BA41366F9CE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "域名解析解决方案", "域名解析解决方案", "{7B0C477E-ADAA-4194-8915-3CFCC47D957C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "阿里云", "阿里云", "{A05615B4-F1AA-45D3-8E0D-7C4A4E5A42C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoResolveDns.AlibabaCloud", "AutoResolveDns.AlibabaCloud\AutoResolveDns.AlibabaCloud.csproj", "{ED9689C4-3BAD-42BD-9E2C-B294C1AAA3BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DC418B4-5D43-40E1-91B9-3584BD720682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC418B4-5D43-40E1-91B9-3584BD720682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DC418B4-5D43-40E1-91B9-3584BD720682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DC418B4-5D43-40E1-91B9-3584BD720682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1998DA02-CC9E-458F-BEB2-5C2599F93AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1998DA02-CC9E-458F-BEB2-5C2599F93AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1998DA02-CC9E-458F-BEB2-5C2599F93AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1998DA02-CC9E-458F-BEB2-5C2599F93AF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DB551A2-519D-4C0D-A372-BA41366F9CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DB551A2-519D-4C0D-A372-BA41366F9CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DB551A2-519D-4C0D-A372-BA41366F9CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DB551A2-519D-4C0D-A372-BA41366F9CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED9689C4-3BAD-42BD-9E2C-B294C1AAA3BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED9689C4-3BAD-42BD-9E2C-B294C1AAA3BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED9689C4-3BAD-42BD-9E2C-B294C1AAA3BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED9689C4-3BAD-42BD-9E2C-B294C1AAA3BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1DC418B4-5D43-40E1-91B9-3584BD720682} = {2A00F13E-0EAB-41E5-B5E7-D4774CFA0030}
+		{1998DA02-CC9E-458F-BEB2-5C2599F93AF3} = {2A00F13E-0EAB-41E5-B5E7-D4774CFA0030}
+		{2DB551A2-519D-4C0D-A372-BA41366F9CE0} = {6DB15AF2-ED60-44D0-AD05-CAE626FAA574}
+		{A05615B4-F1AA-45D3-8E0D-7C4A4E5A42C5} = {7B0C477E-ADAA-4194-8915-3CFCC47D957C}
+		{ED9689C4-3BAD-42BD-9E2C-B294C1AAA3BD} = {A05615B4-F1AA-45D3-8E0D-7C4A4E5A42C5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94C423A2-4335-43A7-B679-2A81F5F814E2}
+	EndGlobalSection
+EndGlobal
