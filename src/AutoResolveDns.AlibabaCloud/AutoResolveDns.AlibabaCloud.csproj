@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="$(SolutionDir)\Directory.props" />
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Title>自动解析域名和IP到DNS阿里云解决方案</Title>
+		<Description>
+			自动解析当前设备的公网地址和配置的域名IP地址，当当前设备的公网地址和域名的不符时，自动解析当前设备公网地址到阿里云服务的云解析DNS下
+			需要自行配置阿里云OpenAPI的AK/SK
+		</Description>
+	</PropertyGroup>
+	<ItemGroup>
+	  <PackageReference Include="AlibabaCloud.SDK.Alidns20150109" Version="3.0.7" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\AutoResolveDns.Abstraction\AutoResolveDns.Abstraction.csproj" />
+	</ItemGroup>
+
+</Project>
