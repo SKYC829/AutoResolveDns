@@ -42,17 +42,26 @@ namespace AutoResolveDns.AlibabaCloud
                     return;
                 }
             }
+            _logger.LogInformation ( $"The domain {context.Domain.Host} had all resolves to {context.IP}" );
         }
 
         private async Task UpdateDnsResolveRecord ( string host , string? ip , string rrType )
         {
-            _logger.LogDebug ( $"Resolving host:{rrType}.{host}" );
-            _logger.LogTrace ( $"The host {rrType}.{host} is resolving to :{ip}" );
-            List<DescribeDomainRecordsResponseBodyDomainRecordsRecord> records = await GetAlibabaDnsResolveRecordIds ( host , ip , rrType );
+            _logger.LogDebug ( $"Resolving domain:{rrType}.{host}" );
+            _logger.LogTrace ( $"The domain {rrType}.{host} is resolving to :{ip}" );
+            List<DescribeDomainRecordsResponseBodyDomainRecordsRecord> records = await GetAlibabaDnsResolveRecordIds ( host , rrType );
+            if ( records == null || records.Count == 0 )
+            {
+                _logger.LogDebug ( $"There are not has any record for {rrType}.{host}" );
+                return;
+            }
             foreach ( DescribeDomainRecordsResponseBodyDomainRecordsRecord item in records )
             {
-                item.Value = ip;
-                await InternalUpdateDnsResolveRecordAsync ( item );
+                if ( item.Value != ip )
+                {
+                    item.Value = ip;
+                    await InternalUpdateDnsResolveRecordAsync ( item );
+                }
             }
         }
 
@@ -79,12 +88,11 @@ namespace AutoResolveDns.AlibabaCloud
             }
         }
 
-        private async Task<List<DescribeDomainRecordsResponseBodyDomainRecordsRecord>> GetAlibabaDnsResolveRecordIds ( string host , string? ip , string rrType )
+        private async Task<List<DescribeDomainRecordsResponseBodyDomainRecordsRecord>> GetAlibabaDnsResolveRecordIds ( string host , string rrType )
         {
             DescribeDomainRecordsRequest request = new DescribeDomainRecordsRequest()
             {
                 DomainName = host,
-                ValueKeyWord = ip,
                 RRKeyWord = rrType
             };
             RuntimeOptions runtime = new RuntimeOptions();

@@ -49,28 +49,37 @@ namespace AutoResolveDns.Core
                     foreach ( DomainStruct domain in _settings.Value.Domains )
                     {
                         _logger.LogDebug ( $"Validation Domain:{domain}" );
+                        if ( !IPHelper.TryGetCurrentIP ( out IPAddress? currentIp ) )
+                        {
+                            _logger.LogWarning ( $"Get current machine ip failure." );
+                            break;
+                        }
                         try
                         {
                             if ( !_vaildateService.GetDomainHostIsVaildate ( domain.Host , out IPAddress [ ]? ipAddresses ) )
                             {
                                 _logger.LogDebug ( $"Domain and host validation faliure." );
-                                _logger.LogTrace ( $"Domain {domain} actual need map to :{string.Join ( Environment.NewLine , ipAddresses.Select ( p => p.MapToIPv4 ().ToString () ) )}" );
+                                _logger.LogTrace ( $"Domain {domain} actual need resolve to :{currentIp?.MapToIPv4 ()?.ToString ()}" );
                                 foreach ( var item in ipAddresses )
                                 {
-                                    DomainOperationContext context = new DomainOperationContext(domain,item.MapToIPv4().ToString());
+                                    DomainOperationContext context = new DomainOperationContext(domain,currentIp?.MapToIPv4 ()?.ToString ());
                                     await _operator.ExecuteAsync ( context , _cancellationTokenSource.Token );
                                 }
                             }
                             else
                             {
                                 _logger.LogDebug ( $"Domain and host not need to resolve dns" );
-                                _logger.LogTrace ( $"Domain {domain} is already map to :{string.Join ( Environment.NewLine , ipAddresses.Select ( p => p.MapToIPv4 ().ToString () ) )}" );
+                                _logger.LogTrace ( $"Domain {domain} is already map to :{currentIp?.MapToIPv4 ()?.ToString ()}" );
                             }
                         }
                         catch ( Exception ex )
                         {
                             _logger.LogCritical ( $"Raising some exception when execute services:{ex.Message}." );
                             _logger.LogDebug ( $"Stacktrace:{ex.StackTrace}" );
+                        }
+                        finally
+                        {
+                            _logger.LogInformation ( $"Domain {domain} resolves task finish." );
                         }
                     }
                     await Task.Delay ( _settings.Value.Delay );
